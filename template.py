@@ -18,7 +18,7 @@ file_list = [
     f'{package_name}/component/data_transformation.py',
     f'{package_name}/component/model_trainer.py',
     f'{package_name}/component/model_evaluation.py',
-    f'{package_name}/component/data_pusher.py',
+    f'{package_name}/component/model_pusher.py',
     f'{package_name}/config/__init__.py',
     f'{package_name}/config/configuartion.py',
     f'{package_name}/constant/__init__.py',
