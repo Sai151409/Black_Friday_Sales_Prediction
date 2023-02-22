@@ -1,0 +1,48 @@
+columns: 
+  Gender: object
+  Age: object
+  Occupation: int64
+  City_Category: object
+  Stay_In_Current_City_Years: object
+  Marital_Status: int64
+  Product_Category_1: int64
+  Product_Category_2: float64
+  Product_Category_3: float64
+  Purchase: int64
+
+categorical_columns:
+  - Gender
+  - Age
+  - Occupation
+  - City_Category
+  - Stay_In_Current_City_Years
+  - Marital_Status
+  - Product_Category_1
+  - Product_Category_2
+  - Product_Category_3
+
+target_column : 
+  - Purchase
+
+domain_value : 
+  Gender :
+    - M
+    - F
+  Age :
+    - 0-17
+    - 18-25
+    - 26-35
+    - 36-45
+    - 46-50
+    - 51-55
+    - 55+
+  City_Category:
+    - A
+    - B
+    - C
+  Stay_In_Current_City_Years :
+    - '0'
+    - '1'
+    - '2'
+    - '3'
+    - '4+'
