@@ -1,0 +1,193 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+<title>Black Friday Sales Estimator</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+
+
+        <form action="/predict" method="post">
+            <legend>Black Friday Sales Estimation Form</legend>
+            <div class="mb-3">
+                <label class="form-label">Gender</label>
+                <select class="form-control" type="text" name="Gender" placeholder="Enter Gender"
+                    required>
+                    <option value = ''>
+                        Please Choose an option
+                    </option>
+                    <option value = 'M'>
+                        Male
+                    </option>
+                    <option value = 'F'>
+                        Female
+                    </option>
+                </select>    
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Age</label>
+                <select class="form-control" type="text" name="Age" placeholder="Enter Age"
+                    required>
+                    <option value="">
+                        Please Choose an option
+                    </option>
+                    <option value="0-17">
+                        0-17
+                    </option>
+                    <option value="18-25">
+                        18-25
+                    </option>
+                    <option value="26-35">
+                        26-35
+                    </option>
+                    <option value="36-45">
+                        36-45
+                    </option>
+                    <option value="46-50">
+                        46-50
+                    </option>
+                    <option value="51-55">
+                        51-55
+                    </option>
+                    <option value="55+">
+                        55+
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Occupation</label>
+                <input class="form-control" type="text" name="Occupation" placeholder="Enter Occupation between 0 to 20"
+                    required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">City_Category</label>
+                <select class="form-control" type="text" name="City_Category" placeholder="Enter City_Category"
+                    required>
+                    <option value="">
+                        Please Choose an option
+                    </option>
+                    <option value="A">
+                        City_Category_A
+                    </option>
+                    <option value="B">
+                        City_Category_B
+                    </option>
+                    <option value="C">
+                        City_Category_C
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Stay_In_Current_City_Years</label>
+                <select class="form-control" type="text" name="Stay_In_Current_City_Years" placeholder="Enter Stay_In_Current_City_Years"
+                    required>
+                    <option value="">
+                        Please Choose an option
+                    </option>
+                    <option value="0">
+                        Less than One Year
+                    </option>
+                    <option value="1">
+                        One Year
+                    </option>
+                    <option value="2">
+                        Two Years
+                    </option>
+                    <option value="3">
+                        Three Years
+                    </option>
+                    <option value="4+">
+                        More Than Three Years
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Marital_Status</label>
+                <select class="form-control" type="text" name="Marital_Status" placeholder="Enter Marital_Status"
+                    required>
+                    <option value="">
+                        Please Choose an option
+                    </option>
+                    <option value=0>
+                        Unmarried
+                    </option>
+                    <option value=1>
+                        married
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Product_Category_1</label>
+                <input class="form-control" type="text" name="Product_Category_1" placeholder="Enter Product_Category_1 value between 0 to 20"
+                    required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Product_Category_2</label>
+                <input class="form-control" type="text" name="Product_Category_2" placeholder="Enter Product_Category_1 value between 0 to 20"
+                    required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Product_Category_3</label>
+                <input class="form-control" type="text" name="Product_Category_3" placeholder="Enter Product_Category_1 value between 0 to 20"
+                    required />
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Black friday Sales Estimation" required />
+            </div>
+
+        </form>
+    </div>
+
+    <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+        <div class="card">
+            <div class="card-header">
+              Black Friday Sales Prediction
+            </div>
+            <div class="card-body">
+        {% if context['black_friday_data'] is not none %}
+        <table class="table table-striped">
+            <caption>BlaCK Friday Sales Estimator</caption>
+            <tr>
+                <th>Input Feature</th>
+                <th>Feature Value</th>
+
+            </tr>
+            {% for column,value in context['black_friday_data'].items() %}
+
+
+
+            <tr>
+                <td>{{column}}</td>
+                <td>{{value[0]}}</td>
+            </tr>
+
+            {% endfor %}
+            <tr>
+
+                <td>Purchase</td>
+                <td>
+                    {{ context['Purchase'] }}
+                </td>
+            </tr>
+        </table>
+
+        {% else %}
+       
+              <h5 class="card-title">Submit Form</h5>
+              <p class="card-text">Kindly provide necessary information to estimate the black friday sales</p>
+            
+         
+
+        {% endif %}
+        Go to <a href="/" class="btn btn-primary">Home</a>
+    </div>
+</div>
+    </div>
+
+    {% endblock %}
+            
