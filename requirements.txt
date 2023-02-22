@@ -7,7 +7,6 @@ scikit-learn
 matplotlib
 seaborn
 gdown
-xgboost
 evidently
 PyYAML
 dill

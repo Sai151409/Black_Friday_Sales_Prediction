@@ -35,12 +35,3 @@ model_selection:
     search_param_grid:
       max_depth: [8]
       min_samples_split: [4]
-
-  module_3:
-    class: XGBRegressor
-    module: xgboost
-    params:
-      n_estimators: 120
-    search_param_grid:
-      learning_rate : [0.2]
-      max_depth : [8]
