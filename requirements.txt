@@ -9,4 +9,5 @@ gdown
 xgboost
 evidently
 PyYAML
+dill
 -e .
