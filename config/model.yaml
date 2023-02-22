@@ -1,0 +1,46 @@
+grid_search:
+  class: GridSearchCV
+  module: sklearn.model_selection
+  params:
+    cv : 5
+    verbose : 2
+
+model_selection:
+  module_0:
+    class: LinearRegression
+    module : sklearn.linear_model
+    params:
+      fit_intercept : true
+    search_param_grid:
+      fit_intercept :
+        - true
+        - false
+
+
+  module_1:
+    class: DecisionTreeRegressor
+    module: sklearn.tree
+    params:
+      criterion: squared_error
+    search_param_grid:
+      max_depth: [9,11,13]
+      min_samples_leaf: [9,11,13]
+      min_samples_split: [8,10,12]
+
+  module_2:
+    class: RandomForestRegressor
+    module: sklearn.ensemble
+    params:
+      n_estimators: 100
+    search_param_grid:
+      max_depth: [8]
+      min_samples_split: [4]
+
+  module_3:
+    class: XGBRegressor
+    module: xgboost
+    params:
+      n_estimators: 120
+    search_param_grid:
+      learning_rate : [0.2]
+      max_depth : [8]
