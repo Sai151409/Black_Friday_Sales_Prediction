@@ -1,0 +1,48 @@
+training_pipeline:
+  pipeline : black_friday
+  artifact : artifact
+
+data_ingestion:
+  data_ingestion_dir : data_ingestion
+  download_url : https://drive.google.com/file/d/16Udx3Tog27g-7l-LUg9wDdlQ4c9_X3_6/view?usp=share_link
+  tgz_download_dir : tgz_download
+  raw_data_dir : raw_data
+  ingested_data_dir : ingested_data
+  ingested_train_dir : train
+  ingested_test_dir : test
+
+data_validation:
+  data_validation_dir : data_validation
+  validated_data_dir : validated_data
+  validated_train_dir : train
+  validated_test_dir : test
+  schema_dir : config
+  schema_file_name : schema.yaml
+  report_file_name : report.json
+  report_page_file_name : report.html
+
+data_transformation:
+  data_transformation_dir : data_transformation
+  transformed_data_dir : transformed_data
+  transformed_train_dir : transformed_train_dir
+  transformed_test_dir : transformed_test_dir
+  preprocessed_dir : preprocessed_dir 
+  preprocessed_file_name : preprocessed.pkl
+
+model_trainer:
+  model_trainer_dir : model_trainer
+  trained_model_dir : trained_model
+  trained_model_file_name : model.pkl
+  model_config_dir : config
+  model_config_file_name : model.yaml
+  base_accuracy : 0.6
+
+model_evaluation:
+  model_evaluation_dir : model_evaluation
+  model_evaluation_file_name : model_evaluation.yaml
+
+model_pusher:
+  model_export_dir : saved_models
+
+test_data_set:
+  link : https://drive.google.com/file/d/1w6yq_HaazCdnGddsgHQ9CzY9BrBo7Wbl/view?usp=share_link
